@@ -1,0 +1,9 @@
+[submodule "baasbox"]
+	path = baasbox
+	url = git://github.com/baasbox/baasbox.git
+[submodule "countly-server"]
+	path = countly-server
+	url = git://github.com/Countly/countly-server.git
+[submodule "pushd"]
+	path = pushd
+	url = git://github.com/rs/pushd.git
