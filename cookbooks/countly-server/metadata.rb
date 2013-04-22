@@ -1,0 +1,5 @@
+maintainer       "Cogniance"
+maintainer_email "it@cogniance.com"
+license          "Apache 2.0"
+description      "Installs/Configures countly server"
+version          "0.1"

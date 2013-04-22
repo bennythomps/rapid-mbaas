@@ -1,0 +1,28 @@
+{
+    "run_list":[
+        "recipe[git]",
+        "recipe[java]",
+        "recipe[apt]",
+        "recipe[build-essential]",
+        "recipe[nodejs::install_from_package]",
+        "recipe[coffeescript]",
+        "recipe[ulimit]",
+        "recipe[redisio::install]",
+        "recipe[redisio::enable]",
+        "recipe[baasbox]",
+        "recipe[pushd]",
+        "recipe[countly-server]"
+    ],
+    "default_attributes": {
+      "java": {
+          "install_flavor": "oracle",
+          "jdk_version": "7",
+          "oracle": {
+              "accept_oracle_download_terms": true
+          }
+      },
+      "nodejs": {
+          "install_method": "package"
+      }
+    }
+}
