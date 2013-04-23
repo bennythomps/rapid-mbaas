@@ -1,5 +1,9 @@
-file_cache_path "/tmp/vagrant-chef-1"
-cookbook_path ["/home/aazarov/projects/chef-solo/cookbooks"]
+file_cache_path           "/tmp/chef-solo"
+data_bag_path             "/tmp/chef-solo/data_bags"
+encrypted_data_bag_secret "/tmp/chef-solo/data_bag_key"
+
+cookbook_path File.expand_path("../cookbooks", __FILE__)
+
 role_path nil
 log_level :info
 
