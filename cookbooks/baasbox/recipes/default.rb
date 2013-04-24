@@ -15,13 +15,23 @@ remote_file "#{Chef::Config[:file_cache_path]}/baasbox.tar.gz" do
   action :create_if_missing
 end
 
-#TODO fix service start
+
+template "/etc/init/baasbox.conf" do
+  source "baasbox.conf.erb"
+  mode 0644
+end
+
+service "baasbox" do
+  supports :status => true, :start => true, :stop => true, :restart => true
+end
+
+
 bash "untar" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOH
   cp baasbox.tar.gz #{node[:baasbox][:dir]}
   cd #{node[:baasbox][:dir]}
   tar zxf baasbox.tar.gz
-  ./start&
+  service baasbox restart
   EOH
 end

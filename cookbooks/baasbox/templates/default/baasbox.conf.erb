@@ -1,0 +1,7 @@
+start on runlevel [2345]
+stop on runlevel [06]
+
+script
+  cd /opt/baasbox;
+  exec ./start > /var/log/baasbox.log
+end script

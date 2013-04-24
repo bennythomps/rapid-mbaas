@@ -9,11 +9,20 @@ template "#{node[:pushd][:dir]}/settings.coffee" do
   mode 0644
 end
 
+template "/etc/init/pushd.conf" do
+  source "pushd.conf.erb"
+  mode 0644
+end
+
+service "pushd" do
+  supports :status => true, :start => true, :stop => true, :restart => true
+end
+
 bash "install_pushd" do
   cwd "#{node[:pushd][:dir]}"
   code <<-EOH
   npm install
-  coffee pushd.coffee > start.log&
+  service pushd restart
   EOH
 end
 
