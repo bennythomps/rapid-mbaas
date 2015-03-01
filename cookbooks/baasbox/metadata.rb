@@ -1,3 +1,4 @@
+name             "baasbox"
 maintainer       "Cogniance"
 maintainer_email "it@cogniance.com"
 license          "Apache 2.0"
